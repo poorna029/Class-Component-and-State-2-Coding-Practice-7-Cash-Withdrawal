@@ -6,15 +6,15 @@ body {
 .main {
   background-color: #150b3e;
   border-radius: 20px;
-  width: 750px;
-  height: 1000px;
+  width: 650px;
+  height: 700px;
 }
 .master {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 4%;
+  margin: 2%;
   height: 90vh;
 }
 
@@ -124,4 +124,10 @@ body {
   align-items: center;
   font-size: 35px;
   cursor: pointer;
+}
+.ulclass {
+  padding-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }

@@ -7,14 +7,21 @@ class CashWithdrawal extends Component {
   state = {money: 2000}
 
   onDisplay = amount => {
-    this.setState({money: amount})
+    let {money} = this.state
+    if (money >= amount) {
+      money -= amount
+      const remaining = money
+
+      this.setState({money: remaining})
+    }
   }
 
   render() {
     const {money} = this.state
+    const {denominationsList} = this.props
 
     return (
-      <ul className="master">
+      <div className="master">
         <div className="main">
           <div className="sara">
             <h1 className="image-pro">S</h1>
@@ -32,10 +39,17 @@ class CashWithdrawal extends Component {
           </div>
           <p className="withD">Withdraw</p>
           <p className="choseSum">CHOOSE SUM (IN RUPEES)</p>
-
-          <DenominationItem money={money} onDisplay={this.onDisplay} />
+          <ul className="ulclass">
+            {denominationsList.map(each => (
+              <DenominationItem
+                key={each.id}
+                money={each.value}
+                onDisplay={this.onDisplay}
+              />
+            ))}
+          </ul>
         </div>
-      </ul>
+      </div>
     )
   }
 }
